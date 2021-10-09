@@ -9,8 +9,8 @@ public:
 	{
 	}
 
-	void times(int multiplier)
+	Dollar times(int multiplier)
 	{
-		amount *= multiplier;
+		return Dollar(amount * multiplier);;
 	}
 };
