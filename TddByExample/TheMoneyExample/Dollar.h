@@ -3,9 +3,9 @@
 
 class Dollar
 {
-public:
+private:
 	int amount = 0;
-
+public:
 	explicit Dollar(int amount) :amount(amount)
 	{
 	}

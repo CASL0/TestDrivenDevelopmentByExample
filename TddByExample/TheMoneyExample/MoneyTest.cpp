@@ -17,10 +17,8 @@ protected:
 TEST_F(MoneyTest, TestMultiplication)
 {
 	auto five = Dollar(5);
-	Dollar product = five.times(2);
-	ASSERT_EQ(10, product.amount);
-	product = five.times(3);
-	ASSERT_EQ(15, product.amount);
+	ASSERT_EQ(Dollar(10), five.times(2));
+	ASSERT_EQ(Dollar(15), five.times(3));
 }
 
 TEST_F(MoneyTest, TestEquality)
