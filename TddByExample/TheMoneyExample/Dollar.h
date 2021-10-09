@@ -1,4 +1,5 @@
 #pragma once
+#include <any>
 
 class Dollar
 {
@@ -9,8 +10,13 @@ public:
 	{
 	}
 
-	Dollar times(int multiplier)
+	Dollar times(int multiplier) const
 	{
 		return Dollar(amount * multiplier);;
+	}
+
+	bool operator==(const Dollar& dollar) const
+	{
+		return amount == dollar.amount;
 	}
 };
