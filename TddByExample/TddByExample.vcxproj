@@ -150,6 +150,10 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="TddByExample.cpp" />
+    <ClCompile Include="TheMoneyExample\MoneyTest.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="TheMoneyExample\Dollar.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
