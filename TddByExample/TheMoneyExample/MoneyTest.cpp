@@ -1,5 +1,6 @@
 #include <gtest/gtest.h>
 #include "Dollar.h"
+#include "Franc.h"
 
 class MoneyTest :public::testing::Test
 {
@@ -25,4 +26,12 @@ TEST_F(MoneyTest, TestEquality)
 {
 	ASSERT_TRUE(Dollar(5) == Dollar(5));
 	ASSERT_FALSE(Dollar(5) == Dollar(6));
+}
+
+TEST_F(MoneyTest, TestFrancMultiplication)
+{
+	auto five = Franc(5);
+	ASSERT_EQ(Franc(10), five.times(2));
+	ASSERT_EQ(Franc(15), five.times(3));
+
 }

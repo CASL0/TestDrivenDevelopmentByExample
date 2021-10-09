@@ -26,5 +26,8 @@
     <ClInclude Include="TheMoneyExample\Dollar.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
+    <ClInclude Include="TheMoneyExample\Franc.h">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
