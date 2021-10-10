@@ -155,6 +155,7 @@
   <ItemGroup>
     <ClInclude Include="TheMoneyExample\Dollar.h" />
     <ClInclude Include="TheMoneyExample\Franc.h" />
+    <ClInclude Include="TheMoneyExample\Money.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

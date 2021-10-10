@@ -1,21 +1,15 @@
 #pragma once
+#include "Money.h"
 
-class Franc
+class Franc :public Money
 {
-private:
-	int amount = 0;
 public:
-	explicit Franc(int amount) :amount(amount)
+	explicit Franc(int amount) :Money(amount)
 	{
 	}
 
 	Franc times(int multiplier) const
 	{
-		return Franc(amount * multiplier);;
-	}
-
-	bool operator==(const Franc& dollar) const
-	{
-		return amount == dollar.amount;
+		return Franc(amount * multiplier);
 	}
 };
