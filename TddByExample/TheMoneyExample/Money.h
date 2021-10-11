@@ -1,4 +1,5 @@
 #pragma once
+#include <typeinfo>
 
 class Money
 {
@@ -8,7 +9,7 @@ public:
 	explicit Money(int amount) : amount(amount) {}
 	virtual bool operator==(const Money* money) const
 	{
-		return amount == money->amount;
+		return typeid(*this) == typeid(*money) && amount == money->amount;
 	}
 
 };

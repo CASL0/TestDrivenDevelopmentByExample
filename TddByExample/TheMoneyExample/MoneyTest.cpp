@@ -29,7 +29,7 @@ TEST_F(MoneyTest, TestEquality)
 	ASSERT_FALSE(Dollar(5) == std::make_unique<Dollar>(6).get());
 	ASSERT_TRUE(Franc(5) == std::make_unique<Franc>(5).get());
 	ASSERT_FALSE(Franc(5) == std::make_unique<Franc>(6).get());
-
+	ASSERT_FALSE(Franc(5) == std::make_unique<Dollar>(5).get());
 }
 
 TEST_F(MoneyTest, TestFrancMultiplication)
