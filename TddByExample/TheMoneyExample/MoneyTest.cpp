@@ -1,6 +1,5 @@
 #include <gtest/gtest.h>
-#include "Dollar.h"
-#include "Franc.h"
+#include "Money.h"
 #include <memory>
 
 class MoneyTest :public::testing::Test
@@ -18,24 +17,24 @@ protected:
 
 TEST_F(MoneyTest, TestMultiplication)
 {
-	auto five = Dollar(5);
-	ASSERT_EQ(Dollar(10), std::make_unique<Dollar>(five.times(2)).get());
-	ASSERT_EQ(Dollar(15), std::make_unique<Dollar>(five.times(3)).get());
+	auto five = std::unique_ptr<Money>(Money::dollar(5));
+	ASSERT_EQ(*std::unique_ptr<Money>(Money::dollar(10)), std::unique_ptr<Money>(five->times(2)).get());
+	ASSERT_EQ(*std::unique_ptr<Money>(Money::dollar(15)), std::unique_ptr<Money>(five->times(3)).get());
 }
 
 TEST_F(MoneyTest, TestEquality)
 {
-	ASSERT_TRUE(Dollar(5) == std::make_unique<Dollar>(5).get());
-	ASSERT_FALSE(Dollar(5) == std::make_unique<Dollar>(6).get());
-	ASSERT_TRUE(Franc(5) == std::make_unique<Franc>(5).get());
-	ASSERT_FALSE(Franc(5) == std::make_unique<Franc>(6).get());
-	ASSERT_FALSE(Franc(5) == std::make_unique<Dollar>(5).get());
+	ASSERT_TRUE(*std::unique_ptr<Money>(Money::dollar(5)) == std::unique_ptr<Money>(Money::dollar(5)).get());
+	ASSERT_FALSE(*std::unique_ptr<Money>(Money::dollar(5)) == std::unique_ptr<Money>(Money::dollar(6)).get());
+	ASSERT_TRUE(*std::unique_ptr<Money>(Money::franc(5)) == std::unique_ptr<Money>(Money::franc(5)).get());
+	ASSERT_FALSE(*std::unique_ptr<Money>(Money::franc(5)) == std::unique_ptr<Money>(Money::franc(6)).get());
+	ASSERT_FALSE(*std::unique_ptr<Money>(Money::franc(5)) == std::unique_ptr<Money>(Money::dollar(5)).get());
 }
 
 TEST_F(MoneyTest, TestFrancMultiplication)
 {
-	auto five = Franc(5);
-	ASSERT_EQ(Franc(10), std::make_unique<Franc>(five.times(2)).get());
-	ASSERT_EQ(Franc(15), std::make_unique<Franc>(five.times(3)).get());
+	auto five = std::unique_ptr<Money>(Money::franc(5));
+	ASSERT_EQ(*std::unique_ptr<Money>(Money::franc(10)), std::unique_ptr<Money>(five->times(2)).get());
+	ASSERT_EQ(*std::unique_ptr<Money>(Money::franc(15)), std::unique_ptr<Money>(five->times(3)).get());
 
 }

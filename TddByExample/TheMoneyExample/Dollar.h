@@ -8,8 +8,8 @@ public:
 	{
 	}
 
-	Dollar times(int multiplier) const
+	Money* times(int multiplier) const override
 	{
-		return Dollar(amount * multiplier);
+		return new Dollar(amount * multiplier);
 	}
 };

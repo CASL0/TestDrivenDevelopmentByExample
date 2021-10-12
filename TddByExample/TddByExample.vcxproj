@@ -150,6 +150,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="TddByExample.cpp" />
+    <ClCompile Include="TheMoneyExample\Money.cpp" />
     <ClCompile Include="TheMoneyExample\MoneyTest.cpp" />
   </ItemGroup>
   <ItemGroup>

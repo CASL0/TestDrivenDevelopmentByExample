@@ -8,8 +8,8 @@ public:
 	{
 	}
 
-	Franc times(int multiplier) const
+	Money* times(int multiplier) const override
 	{
-		return Franc(amount * multiplier);
+		return new Franc(amount * multiplier);
 	}
 };
