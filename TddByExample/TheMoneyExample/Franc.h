@@ -8,5 +8,4 @@ public:
 	{
 	}
 
-	Money* times(int multiplier) const override;
 };

@@ -1,5 +1,6 @@
 #include <gtest/gtest.h>
 #include "Money.h"
+#include "Franc.h"
 #include <memory>
 
 class MoneyTest :public::testing::Test
@@ -43,4 +44,9 @@ TEST_F(MoneyTest, TestCurrency)
 {
 	ASSERT_EQ("USD", Money::dollar(1)->Currency());
 	ASSERT_EQ("CHF", Money::franc(1)->Currency());
+}
+
+TEST_F(MoneyTest, TestDifferentClassEquality)
+{
+	ASSERT_TRUE(*std::make_unique<Money>(10, "CHF") == std::unique_ptr<Money>(new Franc(10, "CHF")).get());
 }

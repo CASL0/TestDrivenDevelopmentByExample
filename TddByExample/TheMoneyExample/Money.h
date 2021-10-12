@@ -14,10 +14,13 @@ public:
 		this->amount = amount;
 		this->currency = currency ? currency : "";
 	}
-	virtual Money* times(int multiplier) const = 0;
+	Money* times(int multiplier) const
+	{
+		return new Money(amount * multiplier, currency.c_str());
+	}
 	virtual bool operator==(const Money* money) const
 	{
-		return typeid(*this) == typeid(*money) && amount == money->amount;
+		return amount == money->amount && Currency() == money->Currency();
 	}
 
 	std::string Currency() const
