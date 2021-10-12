@@ -4,12 +4,9 @@
 class Franc :public Money
 {
 public:
-	explicit Franc(int amount) :Money(amount)
+	Franc(int amount, const char* currency) :Money(amount, currency)
 	{
 	}
 
-	Money* times(int multiplier) const override
-	{
-		return new Franc(amount * multiplier);
-	}
+	Money* times(int multiplier) const override;
 };

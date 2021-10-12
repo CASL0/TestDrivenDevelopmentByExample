@@ -38,3 +38,9 @@ TEST_F(MoneyTest, TestFrancMultiplication)
 	ASSERT_EQ(*std::unique_ptr<Money>(Money::franc(15)), std::unique_ptr<Money>(five->times(3)).get());
 
 }
+
+TEST_F(MoneyTest, TestCurrency)
+{
+	ASSERT_EQ("USD", Money::dollar(1)->Currency());
+	ASSERT_EQ("CHF", Money::franc(1)->Currency());
+}

@@ -4,12 +4,9 @@
 class Dollar :public Money
 {
 public:
-	explicit Dollar(int amount) :Money(amount)
+	Dollar(int amount, const char* currency) :Money(amount, currency)
 	{
 	}
 
-	Money* times(int multiplier) const override
-	{
-		return new Dollar(amount * multiplier);
-	}
+	Money* times(int multiplier) const override;
 };
