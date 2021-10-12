@@ -24,20 +24,8 @@
     <ClCompile Include="TheMoneyExample\Money.cpp">
       <Filter>ソース ファイル</Filter>
     </ClCompile>
-    <ClCompile Include="TheMoneyExample\Dollar.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
-    <ClCompile Include="TheMoneyExample\Franc.cpp">
-      <Filter>ソース ファイル</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="TheMoneyExample\Dollar.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
-    <ClInclude Include="TheMoneyExample\Franc.h">
-      <Filter>ヘッダー ファイル</Filter>
-    </ClInclude>
     <ClInclude Include="TheMoneyExample\Money.h">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
