@@ -150,10 +150,13 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="TddByExample.cpp" />
+    <ClCompile Include="TheMoneyExample\Bank.cpp" />
     <ClCompile Include="TheMoneyExample\Money.cpp" />
     <ClCompile Include="TheMoneyExample\MoneyTest.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="TheMoneyExample\Bank.h" />
+    <ClInclude Include="TheMoneyExample\Expression.h" />
     <ClInclude Include="TheMoneyExample\Money.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

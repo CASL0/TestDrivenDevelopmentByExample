@@ -1,8 +1,9 @@
 #pragma once
+#include "Expression.h"
 #include <typeinfo>
 #include <string>
 
-class Money
+class Money :public Expression
 {
 protected:
 	int amount = 0;
@@ -22,6 +23,7 @@ public:
 	{
 		return amount == money->amount && Currency() == money->Currency();
 	}
+	virtual Money* operator+(const Money* added) const;
 
 	std::string Currency() const
 	{
