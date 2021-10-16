@@ -1,6 +1,7 @@
 #include <gtest/gtest.h>
 #include "Money.h"
 #include "Bank.h"
+#include "Sum.h"
 #include <memory>
 
 class MoneyTest :public::testing::Test
@@ -39,8 +40,32 @@ TEST_F(MoneyTest, TestCurrency)
 TEST_F(MoneyTest, TestSimpleAddition)
 {
 	std::unique_ptr<Money> five(Money::dollar(5));
-	auto sum = std::unique_ptr<Money>(*five + five.get());
+	auto sum = std::unique_ptr<Expression>(*five + five.get());
 	auto bank = std::make_unique<Bank>();
 	std::unique_ptr<Money> reduced(bank->reduce(sum.get(), "USD"));
 	ASSERT_EQ(*std::unique_ptr<Money>(Money::dollar(10)), reduced.get());
+}
+
+TEST_F(MoneyTest, TestPlusReturnsSum)
+{
+	std::unique_ptr<Money> five(Money::dollar(5));
+	auto result = std::unique_ptr<Expression>(*five + five.get());
+	auto sum = (Sum*)(result.get());
+	ASSERT_EQ(*five, sum->augend.get());
+	ASSERT_EQ(*five, sum->addend.get());
+}
+
+TEST_F(MoneyTest, TestReduceSum)
+{
+	std::unique_ptr<Expression> sum = std::make_unique<Sum>(std::unique_ptr<Money>(Money::dollar(3)).get(), std::unique_ptr<Money>(Money::dollar(4)).get());
+	auto bank = std::make_unique<Bank>();
+	std::unique_ptr<Money> result(bank->reduce(sum.get(), "USD"));
+	ASSERT_EQ(*std::unique_ptr<Money>(Money::dollar(7)), result.get());
+}
+
+TEST_F(MoneyTest, TestReduceMoney)
+{
+	auto bank = std::make_unique<Bank>();
+	std::unique_ptr<Money> result(bank->reduce(std::unique_ptr<Money>(Money::dollar(1)).get(), "USD"));
+	ASSERT_EQ(*std::unique_ptr<Money>(Money::dollar(1)), result.get());
 }

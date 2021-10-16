@@ -1,9 +1,10 @@
 #include "Dollar.h"
 #include "Franc.h"
+#include "Sum.h"
 
-Money* Money::operator+(const Money* added) const
+Expression* Money::operator+(const Money* added) const
 {
-	return new Money(amount + added->amount, currency.c_str());
+	return new Sum(this, added);
 }
 
 Money* Money::dollar(int amount)
@@ -14,4 +15,9 @@ Money* Money::dollar(int amount)
 Money* Money::franc(int amount)
 {
 	return new Money(amount, "CHF");
+}
+
+Money* Money::reduce(const char* to) const
+{
+	return new Money(amount, currency.c_str());
 }

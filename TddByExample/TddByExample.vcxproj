@@ -153,11 +153,13 @@
     <ClCompile Include="TheMoneyExample\Bank.cpp" />
     <ClCompile Include="TheMoneyExample\Money.cpp" />
     <ClCompile Include="TheMoneyExample\MoneyTest.cpp" />
+    <ClCompile Include="TheMoneyExample\Sum.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TheMoneyExample\Bank.h" />
     <ClInclude Include="TheMoneyExample\Expression.h" />
     <ClInclude Include="TheMoneyExample\Money.h" />
+    <ClInclude Include="TheMoneyExample\Sum.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

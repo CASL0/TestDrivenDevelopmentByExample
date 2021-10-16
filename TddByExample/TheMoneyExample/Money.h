@@ -6,9 +6,9 @@
 class Money :public Expression
 {
 protected:
-	int amount = 0;
 	std::string currency;
 public:
+	int amount = 0;
 	explicit Money(int amount) : amount(amount) {}
 	Money(int amount, const char* currency)
 	{
@@ -23,12 +23,14 @@ public:
 	{
 		return amount == money->amount && Currency() == money->Currency();
 	}
-	virtual Money* operator+(const Money* added) const;
+	virtual Expression* operator+(const Money* added) const;
 
 	std::string Currency() const
 	{
 		return currency;
 	}
+
+	Money* reduce(const char* to) const override;
 
 	static Money* dollar(int amount);
 	static Money* franc(int amount);
