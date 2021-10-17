@@ -69,3 +69,16 @@ TEST_F(MoneyTest, TestReduceMoney)
 	std::unique_ptr<Money> result(bank->reduce(std::unique_ptr<Money>(Money::dollar(1)).get(), "USD"));
 	ASSERT_EQ(*std::unique_ptr<Money>(Money::dollar(1)), result.get());
 }
+
+TEST_F(MoneyTest, TestReduceMoneyDifferentCurrency)
+{
+	auto bank = std::make_unique<Bank>();
+	bank->addRate("CHF", "USD", 2);
+	std::unique_ptr<Money> result(bank->reduce(std::unique_ptr<Money>(Money::franc(2)).get(), "USD"));
+	ASSERT_EQ(*std::unique_ptr<Money>(Money::dollar(1)), result.get());
+}
+
+TEST_F(MoneyTest, TestIdentityRate)
+{
+	ASSERT_EQ(1, std::unique_ptr<Bank>(new Bank)->rate("USD", "USD"));
+}

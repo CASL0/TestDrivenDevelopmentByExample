@@ -13,5 +13,5 @@ public:
 		this->addend.reset(new Money(*addend));
 	}
 
-	Money* reduce(const char* to) const override;
+	Money* reduce(const Bank* bank, const char* to) const override;
 };

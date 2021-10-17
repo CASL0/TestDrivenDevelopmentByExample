@@ -30,7 +30,7 @@ public:
 		return currency;
 	}
 
-	Money* reduce(const char* to) const override;
+	Money* reduce(const Bank* bank, const char* to) const override;
 
 	static Money* dollar(int amount);
 	static Money* franc(int amount);
